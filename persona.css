@@ -1,0 +1,529 @@
+/* Persona 페이지 전용 스타일 */
+
+/* detail-header 수정 - Core Identity를 포함 */
+.detail-header {
+  margin-bottom: 60px;
+}
+
+.detail-title {
+  font-size: 40px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.detail-subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Core Identity를 타이틀 아래 설명으로 표시 */
+.core-identity-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 15px;
+  max-width: 900px;
+}
+
+/* 키워드를 # 해시태그 형식으로 표시 */
+.core-identity-keywords {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 40px;
+}
+
+/* detail-content를 1열 레이아웃으로 오버라이드 */
+.detail-content {
+  display: block !important;
+  grid-template-columns: unset !important;
+  gap: 0 !important;
+}
+
+/* 비디오 + 녹음된 대화 섹션 (옆으로 나란히) */
+.top-section {
+  width: 100%;
+  max-width: 100%;
+  clear: both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 1 / -1;
+  gap: 30px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+/* 비디오 섹션 스타일 */
+.video-section {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 대화 내용 + 에이전트 섹션 */
+.middle-section {
+  width: 100%;
+  clear: both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 1 / -1;
+  gap: 30px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+}
+
+/* 에이전트 섹션 스타일 */
+.agent-section {
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.agent-section h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.agent-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ElevenLabs ConvAI Widget 스타일 */
+.widget-container {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  cursor: pointer;
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.widget-container.expanded {
+  height: 600px;
+}
+
+elevenlabs-convai {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+}
+
+
+
+.agent-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.agent-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+}
+
+.agent-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.agent-details p {
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.agent-status {
+  display: inline-block;
+  padding: 4px 8px;
+  background: #e9ecef;
+  color: #495057;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.agent-status.active {
+  background: #d4edda;
+  color: #155724;
+}
+
+.agent-status.error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.agent-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.agent-response {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 15px;
+  min-height: 80px;
+}
+
+.response-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #495057;
+}
+
+/* 오디오 섹션 */
+.audio-section-left {
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.audio-section-left h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.audio-container {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 트랜스크립트 섹션 */
+.transcript-section-right {
+  padding: 30px;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.transcript-section-right h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* 컴팩트 오디오 섹션 */
+.audio-section {
+  margin-bottom: 30px;
+}
+
+.audio-player-compact {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+}
+
+.audio-player-compact audio {
+  flex: 1;
+  height: 35px;
+  min-width: 200px;
+}
+
+.audio-info-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 120px;
+}
+
+.audio-title {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.audio-duration {
+  font-size: 11px;
+  color: #666;
+}
+
+.audio-controls-compact {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* 넓은 트랜스크립트 섹션 */
+.transcript-section-wide {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.transcript-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.transcript-header h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: #333;
+}
+
+.transcript-controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.transcript-content-wide {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.transcript-text-wide {
+  padding: 20px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.transcript-text-wide .speaker {
+  font-weight: 500;
+  color: #000;
+  margin-right: 10px;
+}
+
+.transcript-text-wide .timestamp {
+  color: #666;
+  font-size: 12px;
+  margin-right: 15px;
+}
+
+.transcript-text-wide .message {
+  color: #333;
+  margin-bottom: 15px;
+  padding: 8px 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-style: italic;
+}
+
+/* 버튼 스타일 */
+.load-btn, .download-btn, .toggle-btn, .start-btn, .stop-btn {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border-radius: 4px;
+}
+
+.load-btn:hover, .download-btn:hover, .toggle-btn:hover, .start-btn:hover, .stop-btn:hover {
+  opacity: 0.8;
+}
+
+.download-btn {
+  background: #007bff;
+}
+
+.toggle-btn {
+  background: #28a745;
+}
+
+.start-btn {
+  background: #28a745;
+}
+
+.stop-btn {
+  background: #dc3545;
+}
+
+/* Persona Overview 스타일 - 4열 그리드로 변경 */
+.persona-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.overview-section {
+  border: 1px solid #e0e0e0;
+  padding: 30px;
+}
+
+.overview-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.overview-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+}
+
+.overview-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.overview-content li {
+  margin-bottom: 10px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.overview-content li:before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* CTA 섹션 */
+.cta-section {
+  background: #f9f9f9;
+  padding: 40px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.cta-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background: #000;
+  color: #fff;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+
+.cta-button:hover {
+  opacity: 0.8;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .persona-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .persona-overview {
+    grid-template-columns: 1fr;
+  }
+  
+  .top-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .middle-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .agent-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  
+  .agent-controls {
+    justify-content: center;
+  }
+  
+  .audio-player-compact {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .audio-info-compact {
+    min-width: auto;
+    text-align: center;
+  }
+  
+  .transcript-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .transcript-controls {
+    justify-content: center;
+  }
+  
+  .transcript-content-wide {
+    max-height: 400px;
+  }
+}
+

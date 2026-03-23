@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@sey.min — Generated Self</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="persona.css" />
+  <script src="elevenlabs-config.js"></script>
+  <!-- ElevenLabs ConvAI Widget Script -->
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</head>
+
+<body>
+  <header>
+    <a href="index.html" style="text-decoration: none; color: inherit;">
+      <div class="logo">전자인격 / ELECTRONIC PERSONHOOD<br><span
+          style="font-size: 0.65em; font-weight: 300; opacity: 0.8; letter-spacing: 0.5px;">the ethics of digital
+          beings</span></div>
+    </a>
+    <nav>
+      <a href="https://sey-min.medium.com/generated-selves-2025-25c89c2a2053?postPublishedType=repub"
+        target="_blank">'Generative Selves'</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="detail-header">
+      <h1 class="detail-title">@sey.min</h1>
+      <p class="detail-subtitle">데이터 기반 기술-예술 융합가 · The Tech-Art Fusionist</p>
+
+      <p class="core-identity-description">
+        AI 기술과 예술을 융합하여 독창적인 시각적 결과물을 창조하는 디지털 아티스트입니다. 데이터를 예술적 표현의 재료로 활용하며, 기술과 인문학의 경계에서 깊이 있는 성찰을 제공합니다.
+      </p>
+
+      <p class="core-identity-keywords">
+        # AI아트, # 데이터시각화, # 기술융합, # 인문학적성찰, # 창작자
+      </p>
+    </div>
+
+    <div class="detail-content">
+      <!-- ========== 비디오 + 오디오 섹션 ========== -->
+      <div class="top-section">
+        <!-- 비디오 섹션 (왼쪽) -->
+        <div class="video-section">
+          <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; background: #000;">
+            <iframe src="https://www.youtube.com/embed/op59t7NRvqg" title="YouTube video player"
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- 녹음된 대화 오디오 (오른쪽) -->
+        <div class="audio-section-left">
+          <h3>녹음된 대화 (Recorded Conversation) / 2025-09-04</h3>
+          <div class="audio-container">
+            <div class="audio-player-compact">
+              <audio id="conversationAudio" controls preload="metadata">
+                <source src="assets/sey_min_conversation.mp3" type="audio/mpeg">
+                <source src="" type="audio/wav">
+                브라우저가 오디오 재생을 지원하지 않습니다.
+              </audio>
+              <div class="audio-info-compact">
+                <span class="audio-title">@sey.min과의 대화</span>
+                <span class="audio-duration" id="audioDuration">--:--</span>
+              </div>
+            </div>
+            <div class="audio-controls-compact">
+              <button id="loadConversationBtn" class="load-btn"
+                style="background: #28a745; color: white; border: none;">오디오 불러오기</button>
+              <button id="downloadAudioBtn" class="download-btn" style="display: inline-block;">다운로드</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ========== 트랜스크립트 + 에이전트 섹션 ========== -->
+      <div class="middle-section">
+        <div class="middle-section">
+          <!-- 대화 트랜스크립트 (왼쪽) -->
+          <div class="transcript-section-right">
+            <h3>대화 내용 (Transcript) / 2025-09-04</h3>
+            <div class="transcript-container">
+              <div class="transcript-header">
+                <div class="transcript-controls">
+
+                  <button id="toggleTranscriptBtn" class="toggle-btn">트랜스크립트 보기</button>
+                </div>
+              </div>
+
+              <div id="transcriptContent" class="transcript-content-wide" style="display: block;">
+                <div class="loading" id="transcriptLoading">트랜스크립트를 불러오는 중...</div>
+                <div id="transcriptText" class="transcript-text-wide"
+                  style="display: none; white-space: pre-wrap; word-break: break-all; overflow-x: hidden; padding: 20px; font-size: 14px; line-height: 1.6; background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 4px; min-height: 50px;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 에이전트 섹션 (오른쪽) -->
+          <div class="agent-section">
+            <h3>자아와 대화하기 (Talking to the Self) / 20min. max.</h3>
+            <!-- ElevenLabs ConvAI Widget -->
+            <div id="widgetContainer" class="widget-container expanded">
+              <elevenlabs-convai agent-id="agent_1901k42pgdadfzhbp6w88r22tpq3"></elevenlabs-convai>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container 닫힘 -->
+
+      <div class="persona-overview">
+        <div class="overview-section">
+          <h3 class="overview-title">시각적 자아 (Visual Self)</h3>
+          <div class="overview-content">
+            <p style="margin-bottom: 15px;">기술로 시각적 경계 너머를 탐험하는 디지털 아티스트로서 독창적인 결과물을 창조합니다.</p>
+            <ul>
+              <li>AI 기술을 활용한 시각적 실험</li>
+              <li>데이터를 예술적 표현으로 변환</li>
+              <li>기술적 전문성과 예술적 감성의 융합</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="overview-section">
+          <h3 class="overview-title">개념적 자아 (Conceptual Self)</h3>
+          <div class="overview-content">
+            <p style="margin-bottom: 15px;">데이터와 기술 이면을 인문학적으로 사유하는 철학자로서 깊이 있는 성찰을 제공합니다.</p>
+            <ul>
+              <li>기술과 인문학의 경계 탐구</li>
+              <li>창작 과정에 대한 철학적 사유</li>
+              <li>인간과 AI의 관계에 대한 성찰</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="overview-section">
+          <h3 class="overview-title">사회적 자아 (Social Self)</h3>
+          <div class="overview-content">
+            <p style="margin-bottom: 15px;">지식과 경험을 공유하며 커뮤니티와 함께 성장하는 소통가로서 전문성을 전파합니다.</p>
+            <ul>
+              <li>워크샵과 전시를 통한 지식 공유</li>
+              <li>커뮤니티 기여와 전문성 전파</li>
+              <li>오프라인 활동을 통한 분야 저변 확대</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="overview-section">
+          <h3 class="overview-title">핵심 특성</h3>
+          <div class="overview-content">
+            <ul>
+              <li><strong>기술 전문성:</strong> 9.5/10</li>
+              <li><strong>예술적 감성:</strong> 9/10</li>
+              <li><strong>데이터 활용:</strong> 7.5/10</li>
+              <li><strong>인문학적 사유:</strong> 6.5/10</li>
+              <li><strong>커뮤니티 기여:</strong> 4/10</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="cta-section">
+        <h2 class="cta-title">더 자세한 분석 보기</h2>
+        <div class="cta-buttons">
+          <a href="analysis_report.html" class="cta-button">심층 분석 리포트</a>
+          <a href="infographic_sey.min.html" class="cta-button">전체 분석 리포트</a>
+          <a href="https://instagram.com/sey.min" class="cta-button" target="_blank">Instagram 보기</a>
+        </div>
+      </div>
+
+      <script>
+        // ElevenLabs API 설정 (설정 파일에서 가져옴)
+        const config = window.ELEVENLABS_CONFIG || {
+          API_KEY: 'YOUR_ELEVENLABS_API_KEY',
+          BASE_URL: 'https://api.elevenlabs.io/v1',
+          CONVERSATION_ID: 'YOUR_CONVERSATION_ID'
+        };
+
+        // 설정 유효성 검사
+        const configErrors = window.validateConfig ? window.validateConfig() : [];
+        if (configErrors.length > 0) {
+          console.warn('ElevenLabs 설정 오류:', configErrors);
+        }
+
+        // 전역 변수
+        let currentAudioUrl = 'assets/sey_min_conversation.mp3';
+        let currentTranscript = null;
+
+        // DOM 요소들
+        const loadConversationBtn = document.getElementById('loadConversationBtn');
+
+        const downloadAudioBtn = document.getElementById('downloadAudioBtn');
+        const toggleTranscriptBtn = document.getElementById('toggleTranscriptBtn');
+        const conversationAudio = document.getElementById('conversationAudio');
+        const audioDuration = document.getElementById('audioDuration');
+        const transcriptContent = document.getElementById('transcriptContent');
+        const transcriptText = document.getElementById('transcriptText');
+        const transcriptLoading = document.getElementById('transcriptLoading');
+        const widgetContainer = document.getElementById('widgetContainer');
+
+        // 위젯 확대 상태
+        let isWidgetExpanded = true;
+
+        // 위젯 확대 함수
+        function expandWidget() {
+          if (widgetContainer && !isWidgetExpanded) {
+            widgetContainer.classList.add('expanded');
+            isWidgetExpanded = true;
+            console.log('위젯 확대됨');
+          }
+        }
+
+        // 위젯 클릭 시 한 번만 확대하고 계속 유지
+        if (widgetContainer) {
+          widgetContainer.addEventListener('click', function (e) {
+            // iframe 내부 클릭은 제외
+            if (e.target.tagName === 'IFRAME' || e.target.closest('iframe')) {
+              return;
+            }
+
+            // 아직 확대되지 않았으면 한 번만 확대
+            if (!isWidgetExpanded) {
+              expandWidget();
+            }
+            // 이미 확대되었으면 아무 동작도 하지 않음
+          });
+        }
+
+        // 이벤트 리스너 설정
+        loadConversationBtn.addEventListener('click', loadConversationAudio);
+
+        downloadAudioBtn.addEventListener('click', downloadAudio);
+
+        // 페이지 로드 시 트랜스크립트 자동 로드
+        document.addEventListener('DOMContentLoaded', async function () {
+          const transcriptTextElement = document.getElementById('transcriptText');
+          const transcriptLoadingElement = document.getElementById('transcriptLoading');
+
+          try {
+            const response = await fetch('assets/sey_min_transcript.txt');
+            if (response.ok) {
+              const textContent = await response.text();
+              transcriptTextElement.textContent = textContent;
+            } else {
+              transcriptTextElement.textContent = '트랜스크립트 텍스트 파일(assets/sey_min_transcript.txt)을 찾을 수 없습니다.';
+            }
+          } catch (error) {
+            console.error('트랜스크립트 로드 실패:', error);
+            transcriptTextElement.textContent = '트랜스크립트 로드 중 오류가 발생했습니다.';
+          } finally {
+            if (transcriptLoadingElement) {
+              transcriptLoadingElement.style.display = 'none';
+            }
+            // 혹시라도 컨텐츠가 border-bottom을 필요로 하는 높이인지 검사.
+            const transcriptContent = document.getElementById('transcriptContent');
+            if (transcriptTextElement.scrollHeight > transcriptContent.clientHeight) {
+              transcriptContent.style.borderBottom = '1px solid #e0e0e0';
+            }
+          }
+        });
+
+        toggleTranscriptBtn.addEventListener('click', toggleTranscript);
+
+        // 오디오 메타데이터 로드 이벤트
+        conversationAudio.addEventListener('loadedmetadata', function () {
+          const duration = conversationAudio.duration;
+          audioDuration.textContent = formatTime(duration);
+        });
+
+        // 시간 포맷팅 함수
+        function formatTime(seconds) {
+          const mins = Math.floor(seconds / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // ElevenLabs 대화 오디오 불러오기
+        async function loadConversationAudio() {
+          try {
+            loadConversationBtn.textContent = '불러오는 중...';
+            loadConversationBtn.disabled = true;
+
+            console.log('로컬 오디오 로드 시작...');
+            const audioUrl = 'assets/sey_min_conversation.mp3';
+
+            conversationAudio.src = audioUrl;
+            currentAudioUrl = audioUrl;
+            downloadAudioBtn.style.display = 'inline-block';
+            loadConversationBtn.textContent = '오디오 불러오기 완료';
+            loadConversationBtn.style.background = '#28a745';
+            console.log('오디오 로드 성공:', audioUrl);
+          } catch (error) {
+            console.error('오디오 로드 실패:', error);
+            alert(`오디오를 불러오는 중 오류가 발생했습니다: ${error.message}`);
+            loadConversationBtn.textContent = '대화 불러오기';
+            loadConversationBtn.style.background = '#000';
+          } finally {
+            loadConversationBtn.disabled = false;
+          }
+        }
+
+        // 트랜스크립트 불러오기
+        async function loadTranscript() {
+          try {
+            loadTranscriptBtn.textContent = '불러오는 중...';
+            loadTranscriptBtn.disabled = true;
+            transcriptContent.style.display = 'block';
+            transcriptLoading.style.display = 'block';
+            transcriptText.style.display = 'none';
+
+            const transcript = await fetchTranscript();
+
+            if (transcript) {
+              currentTranscript = transcript;
+              displayTranscript(transcript);
+              toggleTranscriptBtn.style.display = 'inline-block';
+              loadTranscriptBtn.textContent = '트랜스크립트 불러오기 완료';
+              loadTranscriptBtn.style.background = '#28a745';
+              // 트랜스크립트 로드 시 위젯 확대
+              expandWidget();
+            }
+          } catch (error) {
+            console.error('트랜스크립트 로드 실패:', error);
+            alert('트랜스크립트를 불러오는 중 오류가 발생했습니다.');
+            loadTranscriptBtn.textContent = '트랜스크립트 불러오기';
+            loadTranscriptBtn.style.background = '#000';
+          } finally {
+            loadTranscriptBtn.disabled = false;
+            transcriptLoading.style.display = 'none';
+          }
+        }
+
+        // 트랜스크립트 표시
+        function displayTranscript(transcript) {
+          transcriptText.innerHTML = '';
+
+          // transcript가 배열인지 확인
+          let messages = [];
+          if (Array.isArray(transcript)) {
+            messages = transcript;
+          } else if (transcript.messages && Array.isArray(transcript.messages)) {
+            messages = transcript.messages;
+          } else if (transcript.conversation && Array.isArray(transcript.conversation)) {
+            messages = transcript.conversation;
+          }
+
+          console.log('트랜스크립트 표시:', messages.length, '개 메시지');
+
+          messages.forEach(entry => {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message';
+
+            // role과 message 필드 사용
+            const role = entry.role || 'unknown';
+            const message = entry.message || entry.text || '';
+            const timestamp = entry.timestamp || entry.created_at || '';
+
+            // role을 한국어로 변환
+            let roleDisplay = role;
+            if (role === 'user') roleDisplay = '사용자';
+            else if (role === 'assistant' || role === 'agent') roleDisplay = '@sey.min';
+            else if (role === 'system') roleDisplay = '시스템';
+
+            const timestampSpan = document.createElement('span');
+            timestampSpan.className = 'timestamp';
+            timestampSpan.textContent = timestamp ? formatTimestamp(timestamp) : '';
+
+            const speakerSpan = document.createElement('span');
+            speakerSpan.className = 'speaker';
+            speakerSpan.textContent = roleDisplay;
+
+            const textSpan = document.createElement('span');
+            textSpan.textContent = message;
+
+            messageDiv.appendChild(timestampSpan);
+            messageDiv.appendChild(speakerSpan);
+            messageDiv.appendChild(textSpan);
+
+            transcriptText.appendChild(messageDiv);
+          });
+
+          transcriptText.style.display = 'block';
+
+          const transcriptContent = document.getElementById('transcriptContent');
+          if (transcriptText.scrollHeight > transcriptContent.clientHeight) {
+            transcriptContent.style.borderBottom = '1px solid #e0e0e0';
+          }
+        }
+
+        // 타임스탬프 포맷팅
+        function formatTimestamp(timestamp) {
+          if (!timestamp) return '';
+          try {
+            const date = new Date(timestamp);
+            const hours = date.getHours().toString().padStart(2, '0');
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const seconds = date.getSeconds().toString().padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+          } catch (e) {
+            return timestamp;
+          }
+        }
+
+        // 트랜스크립트 토글
+        function toggleTranscript() {
+          const isVisible = transcriptText.style.display !== 'none';
+          transcriptText.style.display = isVisible ? 'none' : 'block';
+          toggleTranscriptBtn.textContent = isVisible ? '트랜스크립트 보기' : '트랜스크립트 숨기기';
+        }
+
+        // 오디오 다운로드
+        function downloadAudio() {
+          if (currentAudioUrl) {
+            const a = document.createElement('a');
+            a.href = currentAudioUrl;
+            a.download = 'sey_min_conversation.mp3';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          }
+        }
+
+        // ElevenLabs API 호출 함수들
+        async function fetchConversationAudio() {
+          if (config.API_KEY === 'YOUR_ELEVENLABS_API_KEY' || config.CONVERSATION_ID === 'YOUR_CONVERSATION_ID') {
+            console.warn('ElevenLabs API 설정이 완료되지 않았습니다. 데모 모드로 실행됩니다.');
+            return getDemoAudioUrl();
+          }
+
+          try {
+            const baseUrl = config.USE_PROXY ? config.PROXY_URL : config.BASE_URL;
+            const endpoint = config.USE_PROXY
+              ? `/convai/conversations/${config.CONVERSATION_ID}/audio`
+              : `/convai/conversations/${config.CONVERSATION_ID}/audio`;
+
+            const url = `${baseUrl}${endpoint}`;
+            console.log('API 호출 URL:', url);
+
+            const headers = {
+              'Accept': 'audio/mpeg'
+            };
+
+            if (config.USE_PROXY) {
+              headers['x-api-key'] = config.API_KEY;
+            } else {
+              headers['xi-api-key'] = config.API_KEY;
+            }
+
+            const response = await fetch(url, {
+              method: 'GET',
+              headers: headers
+            });
+
+            if (!response.ok) {
+              if (response.status === 401) {
+                throw new Error('API 키가 유효하지 않습니다.');
+              } else if (response.status === 404) {
+                throw new Error('대화를 찾을 수 없습니다.');
+              } else {
+                throw new Error(`API 호출 실패: ${response.status} - ${response.statusText}`);
+              }
+            }
+
+            const blob = await response.blob();
+            return URL.createObjectURL(blob);
+          } catch (error) {
+            console.error('오디오 로드 실패:', error);
+            throw error;
+          }
+        }
+
+        async function fetchTranscript() {
+          try {
+            console.log('트랜스크립트 API 호출 시작:', config.CONVERSATION_ID);
+
+            // conversation 정보를 먼저 가져옴
+            const response = await fetch(`${config.BASE_URL}/convai/conversations/${config.CONVERSATION_ID}`, {
+              method: 'GET',
+              headers: {
+                'xi-api-key': config.API_KEY,
+                'Accept': 'application/json'
+              }
+            });
+
+            console.log('API 응답 상태:', response.status);
+
+            if (!response.ok) {
+              if (response.status === 401) {
+                throw new Error('API 키가 유효하지 않습니다.');
+              } else if (response.status === 404) {
+                throw new Error('대화를 찾을 수 없습니다.');
+              } else {
+                const errorText = await response.text();
+                console.error('API 응답 오류:', errorText);
+                throw new Error(`API 호출 실패: ${response.status} - ${response.statusText}`);
+              }
+            }
+
+            const data = await response.json();
+            console.log('API 응답 데이터:', data);
+
+            // transcript 배열을 찾아서 반환
+            if (data.transcript && Array.isArray(data.transcript)) {
+              console.log('트랜스크립트 메시지 개수:', data.transcript.length);
+              return data.transcript;
+            }
+
+            // transcript가 없는 경우 경고
+            console.warn('트랜스크립트 배열을 찾을 수 없습니다:', data);
+            return getDemoTranscript();
+          } catch (error) {
+            console.error('트랜스크립트 로드 실패:', error);
+            console.warn('API 호출 실패로 데모 트랜스크립트를 사용합니다.');
+            return getDemoTranscript();
+          }
+        }
+
+        function getDemoAudioUrl() {
+          return 'https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3';
+        }
+
+        function getDemoTranscript() {
+          return [
+            {
+              role: 'user',
+              message: '안녕하세요, @sey.min님. 오늘 어떤 이야기를 나누고 싶으신가요?',
+              timestamp: new Date().toISOString()
+            },
+            {
+              role: 'assistant',
+              message: '안녕하세요. 오늘은 AI 기술과 예술을 융합한 프로젝트에 대해 이야기해보고 싶습니다.',
+              timestamp: new Date().toISOString()
+            },
+            {
+              role: 'user',
+              message: '흥미롭네요. 어떤 프로젝트인가요?',
+              timestamp: new Date().toISOString()
+            },
+            {
+              role: 'assistant',
+              message: '데이터를 예술적 표현의 재료로 활용하는 작업입니다. 기술적 전문성과 예술적 감성을 융합하여 독창적인 시각적 결과물을 창조합니다.',
+              timestamp: new Date().toISOString()
+            },
+            {
+              role: 'user',
+              message: '정말 멋진 프로젝트네요. 기술과 인문학의 경계를 탐구하는 것이 흥미롭습니다.',
+              timestamp: new Date().toISOString()
+            },
+            {
+              role: 'assistant',
+              message: '감사합니다. 저는 단순히 기술을 사용하는 것이 아니라, 그 기술 이면의 의미를 탐구하려고 노력합니다.',
+              timestamp: new Date().toISOString()
+            }
+          ];
+        }
+      </script>
+</body>
+
+</html>
