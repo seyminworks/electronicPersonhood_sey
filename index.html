@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob:;">
+    <title>Electronic Personhood - Abstract Data Visualization</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --pink: #ff007f;
+            --green: #32cd32;
+            --cyan: #00ffff;
+            --yellow: #ffff00;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background: #ffffff;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .label-text {
+            font-size: 0.6rem;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            white-space: nowrap;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* ── Header / Footer ───────────────────────────── */
+        header,
+        footer {
+            position: fixed;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            pointer-events: none;
+        }
+
+        header a,
+        footer a {
+            pointer-events: all;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        header a:hover,
+        footer a:hover {
+            color: var(--pink) !important;
+            border-color: var(--pink) !important;
+        }
+
+        header {
+            top: 0;
+            align-items: flex-start;
+        }
+
+        footer {
+            bottom: 0;
+            align-items: flex-end;
+        }
+
+        h1 {
+            font-size: 1.15rem;
+            font-weight: 300;
+            letter-spacing: -0.04em;
+        }
+
+        /* 3D Container */
+        #viz-container { position: relative; z-index: 1; }
+        #viz-container canvas { display: block; position: relative; z-index: 1; }
+        .shape {
+            position: absolute;
+            cursor: default;
+            will-change: transform;
+        }
+
+        /* Filled shape (agent assigned) */
+        .shape.filled {
+            cursor: pointer;
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        .shape.filled.paused {
+            animation-play-state: paused;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.20);
+            }
+        }
+
+        /* ── Audio unlock screen ────────────────── */
+        #audio-unlock {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        #audio-unlock-hint {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            border: 1px solid #1a1a1a;
+            padding: 0.5rem 1.2rem;
+            opacity: 0.5;
+            animation: blink-hint 2s ease-in-out infinite;
+        }
+
+        @keyframes blink-hint {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* All shapes stop when hovered-state is active */
+        body.freeze /* 3D Container */
+        #viz-container canvas { display: block; }
+        .shape {
+            transition: none;
+        }
+
+        /* ── Centered Modal ──────────────────────────────── */
+        .drawer-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.4); /* slightly more transparent, no blur */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+            z-index: 9999;
+        }
+
+        .drawer-backdrop.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .chat-drawer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%) scale(0.92);
+            width: 360px;
+            background: rgba(255, 255, 255, 0.98);
+            border: 1px solid #e0e0e0;
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s;
+        }
+
+        .chat-drawer.open {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            z-index: 2000; /* Ensure header is above widget content */
+            pointer-events: all;
+        }
+
+        .modal-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .modal-name {
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            color: #ff69b4;
+            font-weight: 700;
+        }
+
+        .modal-date {
+            font-size: 0.5rem;
+            letter-spacing: 0.06em;
+            color: #aaa;
+        }
+
+        .modal-close-btn {
+            background: none;
+            border: 1px solid #e0e0e0;
+            color: #999;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.5rem;
+            letter-spacing: 0.1em;
+            padding: 0.3rem 0.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .modal-close-btn:hover { background: #f9f9f9; }
+
+        /* Click hint cursor indicator */
+        #click-hint {
+            position: fixed;
+            bottom: 5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #ff69b4;
+            opacity: 0.7;
+            animation: blink-hint 2s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 150;
+        }
+        /* ElevenLabs widget: hidden from interaction until drawer is open */
+        elevenlabs-convai {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+        .chat-drawer.open elevenlabs-convai {
+            opacity: 1;
+            pointer-events: all;
+            visibility: visible;
+        }
+    </style>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div>
+            <h1>전자인격 / ELECTRONIC PERSONHOOD</h1>
+            <p class="label-text" style="opacity:0.5">the ethics of digital beings</p>
+        </div>
+        <div style="text-align:right">
+            <p class="label-text"><a href="https://www.instagram.com/koreafoundation/" target="_blank"
+                    style="color:inherit;text-decoration:none;">Facing Faces, KF XR gallery</a></p>
+            <p class="label-text" style="opacity:0.5">03.31.2026~07.31.2026</p>
+        </div>
+    </header>
+
+    <!-- Canvas -->
+    <main id="viz-container" onclick="tryOpenFromCanvas(event)" style="position:relative;width:100vw;height:100vh;overflow:hidden;"></main>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <p class="label-text"><a href="https://linktr.ee/seymin" target="_blank"
+                    style="color:inherit;text-decoration:none;">ARTIST SEY MIN</a></p>
+            <p class="label-text" style="opacity:0.5">© 2026 ELECTRONIC PERSONHOOD</p>
+            <p class="label-text" style="opacity:0.5">Phase II of <a href="https://seyminworks.github.io/me_myVself/"
+                    target="_blank" style="color:inherit;text-decoration:none;">Generated Selves</a></p>
+        </div>
+        <div style="text-align:right">
+            <p class="label-text"><a href="https://forms.gle/DzTJyGE9Lf2X36nL6" target="_blank"
+                    style="color:#1a1a1a; background-color:#ffff49; font-weight:600; padding:0.2rem 0.5rem; text-decoration:none;">LEAVE YOUR GENERATED
+                    SELF</a></p>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Drawer Backdrop -->
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+
+    <!-- Chat Drawer (centered modal) -->
+    <div class="chat-drawer" id="chat-drawer">
+        <div class="modal-header">
+            <div class="modal-meta">
+                <span class="modal-name">SEY MIN</span>
+                <span class="modal-date">ARTIST / 2026-03-31</span>
+            </div>
+            <button class="modal-close-btn" id="drawer-close" onclick="event.stopPropagation(); closeDrawer();">&#x2715; close</button>
+        </div>
+        <div class="widget-container" style="flex:1; min-height:460px;">
+            <elevenlabs-convai agent-id="agent_1901k42pgdadfzhbp6w88r22tpq3"></elevenlabs-convai>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/renderers/CSS2DRenderer.js"></script>
+    <script src="JS/main.js"></script>
+</body>
+
+</html>
