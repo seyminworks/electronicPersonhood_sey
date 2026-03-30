@@ -164,7 +164,8 @@
         .drawer-backdrop {
             position: fixed;
             inset: 0;
-            background: rgba(255, 255, 255, 0.4); /* slightly more transparent, no blur */
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px); /* slightly softer feel */
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.5s;
@@ -184,13 +185,15 @@
             width: 360px;
             background: rgba(255, 255, 255, 0.98);
             border: 1px solid #e0e0e0;
+            border-radius: 24px; /* smoother corners */
+            overflow: hidden; /* ensure contents follow corners */
             z-index: 10000;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
             opacity: 0;
             pointer-events: none;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s;
         }
 
         .chat-drawer.open {
@@ -237,8 +240,10 @@
             font-size: 0.5rem;
             letter-spacing: 0.1em;
             padding: 0.3rem 0.8rem;
+            border-radius: 12px; /* rounded button */
             cursor: pointer;
             text-transform: uppercase;
+            transition: all 0.3s ease;
         }
 
         .modal-close-btn:hover { background: #f9f9f9; }
