@@ -79,8 +79,8 @@ function unlockAudio() {
     if (audioUnlocked) return;
     audioUnlocked = true;
     hoverAudio = new Audio('asset/sound/SMbeing.mp3');
-    hoverAudio.loop = false;
-    hoverAudio.volume = 0.7;
+    hoverAudio.loop = true;
+    hoverAudio.volume = 0.6;
     hoverAudio.preload = 'auto';
     hoverAudio.load();
     hoverAudio.addEventListener('ended', () => { hoverAudio.currentTime = 0; });
