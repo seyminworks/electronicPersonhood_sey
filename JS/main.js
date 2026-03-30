@@ -78,7 +78,7 @@ let audioUnlocked = false;
 function unlockAudio() {
     if (audioUnlocked) return;
     audioUnlocked = true;
-    hoverAudio = new Audio('asset/sound/KFbeing_00.mp3');
+    hoverAudio = new Audio('asset/sound/SMbeing.mp3');
     hoverAudio.loop = false;
     hoverAudio.volume = 0.7;
     hoverAudio.preload = 'auto';
