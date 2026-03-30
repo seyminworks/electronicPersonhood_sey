@@ -468,6 +468,11 @@ function closeDrawer() {
     lastCloseTime = Date.now();
     document.getElementById('chat-drawer')?.classList.remove('open');
     document.getElementById('drawer-backdrop')?.classList.remove('open');
+    
+    // Clear widget container to stop audio
+    const container = document.querySelector('.widget-container');
+    if (container) container.innerHTML = '';
+
     cameraTarget  = cameraDefaultPos.clone();
     lookTarget    = new THREE.Vector3(0, 0, 0);
     cameraLerping = true;
